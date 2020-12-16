@@ -1,0 +1,180 @@
+@import 'clients/shared/styles/variables';
+@import 'clients/shared/styles/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&display=swap');
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $sv-bg;
+}
+
+.tables-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  width: 90vw;
+}
+
+.table-card {
+  @include sv-card-border;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 250px;
+  min-width: 300px;
+}
+
+button {
+  cursor: pointer;
+
+  &.expand-session {
+    background-color: $sv-purple;
+  }
+
+  &.end-session {
+    background-color: $sv-red;
+  }
+}
+
+.table-header {
+  @include flex-sb-c;
+  height: 50px;
+  //background-color: $sv-pill-bg;
+  border-bottom: $sv-border 1px solid;
+  padding: 0 0 0 10px;
+
+  h3 {
+    @include margin-padding-0;
+    @include roboto;
+    font-size: 15px;
+    font-weight: 600;
+    color: $sv-header;
+
+    &.inactive {
+      color: rgba($sv-header, .3);
+    }
+  }
+
+  .notifications {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 10px;
+
+    .fa-icon {
+      color: rgba($sv-orange, 0.5);
+    }
+  }
+}
+
+.table-body {
+  @include flex-sa-c;
+  height: 100%;
+  flex-direction: column;
+
+  &.no-session {
+    @include flex-c-c;
+  }
+}
+
+.table-row {
+  @include flex-sb-c;
+  width: 90%;
+}
+
+p {
+  @include roboto;
+  @include margin-padding-0;
+}
+
+h4 {
+  @include roboto;
+  @include margin-padding-0;
+}
+
+.order-display {
+  width: 100px;
+  height: 80px;
+  border: #363b59 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 25%;
+
+  h4 {
+    font-size: 30px;
+  }
+
+  p {
+
+    font-size: 13px;
+    color: rgba($sv-header, 0.5);
+  }
+
+  &.zero {
+    h4 {
+      color: $sv-pill-bg;
+    }
+  }
+
+  &.completed {
+    h4 {
+      color: $sv-green;
+    }
+
+    p {
+
+    }
+  }
+
+  &.in-progress {
+    h4 {
+      color: $sv-purple;
+    }
+
+  }
+
+  &.requests {
+    h4 {
+      color: $sv-orange;
+    }
+  }
+}
+
+
+.plus-button-wrapper {
+  @include flex-c-c;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover .plus-button {
+    color: $sv-purple;
+  }
+
+  .plus-button {
+    color: $sv-pill-bg;
+    font-size: 70px;
+  }
+}
+
+.orders-container {
+  display: flex;
+  width: 80vw;
+  overflow: hidden;
+}
+
+.order-column {
+  @include sv-card-border;
+  width: 300px;
+  min-height: 400px;
+  margin: 0 15px 0 0;
+
+  button {
+    background-color: $sv-pink;
+  }
+}
+
+//.order-item-card {
+//  @include flex-sb-c;
+//
+//}
