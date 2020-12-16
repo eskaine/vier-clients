@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import socket from '../helpers/socket';
+import socket from '../../shared/helpers/socket';
 
 function Checkout() {
   const { state } = useLocation();

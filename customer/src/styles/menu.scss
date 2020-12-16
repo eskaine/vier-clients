@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'mixins';
-@import 'main';
+@import 'clients/shared/styles/variables';
+@import 'clients/shared/styles/mixins';
+@import 'clients/shared/styles/main';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Ultra&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&display=swap');
 
@@ -84,7 +84,9 @@ h5 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 700px;
+  height: 800px;
+  padding-bottom: 150px;
+  margin-bottom: 150px;
 }
 
 .home-page-div {
@@ -164,7 +166,8 @@ h5 {
 .menuitems-main-div {
   @include flex-c-c;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 100px 0 300px 0;
+  padding-bottom: 100px;
 }
 
 .menuitem-card {
@@ -293,7 +296,7 @@ h5 {
 }
 
 .cart-div {
-  @include menu-card;
+
   @include flex-sb-c;
   position: fixed;
   flex-direction: column;
@@ -307,6 +310,10 @@ h5 {
 
   &.expand {
     bottom: 0;
+  }
+
+  &.hidden {
+    bottom: -70vh;
   }
 }
 
