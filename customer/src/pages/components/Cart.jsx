@@ -40,7 +40,6 @@ function Cart({ cartData, sessionId, getSessionData, pageMode }) {
     // await axiosPatch(`/api/orders/new/${sessionId}`, {}, () => setExpandCart(false));
     await Axios.patch(`/api/orders/new/${sessionId}`)
     .then(res => {
-      console.log(res);
       setExpandCart(false);
     })
     .catch(err => console.log(err));
