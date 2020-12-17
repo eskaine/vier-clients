@@ -52,18 +52,16 @@ function App() {
       {backdrop}
       <Switch>
         <Route path="/" exact>
-          <NavLink to="/table/1">Table 1</NavLink>
-          <NavLink to="/table/2">Table 2</NavLink>
-          <NavLink to="/table/3">Table 3</NavLink>
-          <NavLink to="/table/4">Table 4</NavLink>
-          <NavLink to="/table/5">Table 5</NavLink>
-          <NavLink to="/table/6">Table 6</NavLink>
-          <NavLink to="/table/7">Table 7</NavLink>
-          <NavLink to="/table/8">Table 8</NavLink>
-          <NavLink to="/table/9">Table 9</NavLink>
-          <NavLink to="/table/10">Table 10</NavLink>
-          {/* <Home setPageMode={setPageMode} pageMode={pageMode} /> */}
-          {/* <Cart sessionData={sessionData} /> */}
+          <NavLink to="/table/1"><p>Table 1</p></NavLink>
+          <NavLink to="/table/2"><p>Table 2</p></NavLink>
+          <NavLink to="/table/3"><p>Table 3</p></NavLink>
+          <NavLink to="/table/4"><p>Table 4</p></NavLink>
+          <NavLink to="/table/5"><p>Table 5</p></NavLink>
+          <NavLink to="/table/6"><p>Table 6</p></NavLink>
+          <NavLink to="/table/7"><p>Table 7</p></NavLink>
+          <NavLink to="/table/8"><p>Table 8</p></NavLink>
+          <NavLink to="/table/9"><p>Table 9</p></NavLink>
+          <NavLink to="/table/10"><p>Table 10</p></NavLink>
         </Route>
         <Route path="/table/:tableno">
           <Home
