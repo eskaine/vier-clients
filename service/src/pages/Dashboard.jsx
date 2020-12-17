@@ -35,7 +35,7 @@ function Dashboard() {
       />
     ));
   }
-  console.log(restaurantData);
+  // console.log(restaurantData);
 
   useEffect(() => {
     getRestaurantData();

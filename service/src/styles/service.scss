@@ -196,19 +196,42 @@ h4 {
   }
 }
 
-.order-items-container {
-  margin-top: 30px;
+ul {
+  list-style-type: none;
+  @include margin-padding-0;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
-.order-item-card {
-  @include flex-sb-c;
-  height: 30px;
+a {
+  text-decoration: none;
+  color: $sv-purple;
+}
 
-  .quantity-progress {
+.navlink {
+  text-decoration: none;
+  display: inline;
+  width: 50%;
+  padding: 12px;
+  border: 1px solid $sv-border;
+  text-align: center;
+
+  .order-items-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .order-item-card {
     @include flex-sb-c;
-    width: 35%;
+    height: 30px;
+
+    .quantity-progress {
+      @include flex-sb-c;
+      width: 35%;
+    }
   }
 }
 
