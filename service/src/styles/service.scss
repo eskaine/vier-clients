@@ -93,6 +93,14 @@ h4 {
   @include margin-padding-0;
 }
 
+.table-page {
+
+  h3 {
+    @include margin-padding-0;
+    font-size: 50px;
+  }
+}
+
 .order-display {
   width: 100px;
   height: 80px;
@@ -157,21 +165,49 @@ h4 {
 .orders-container {
   display: flex;
   width: 80vw;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .order-column {
   @include sv-card-border;
   width: 300px;
-  min-height: 400px;
+  min-height: 500px;
   margin: 0 15px 0 0;
+  padding: 20px 20px 50px 20px;
+
+  .header {
+    @include flex-sb-c;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  .column-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+  }
 
   button {
-    background-color: $sv-pink;
+    color: black;
+    background-color: $sv-green;
   }
 }
 
-//.order-item-card {
-//  @include flex-sb-c;
-//
-//}
+.order-items-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-item-card {
+  @include flex-sb-c;
+  height: 30px;
+
+  .quantity-progress {
+    @include flex-sb-c;
+    width: 35%;
+  }
+}
