@@ -28,7 +28,7 @@ function Orders({sessionData}) {
         <h3>Orders</h3>
       </div>
       <div className="order-item-container">
-        {orders}
+        {render}
         <h4 className="total">Total: ${total}</h4>
         <Link className="route-link" to={{pathname: '/checkout', state: {total}}}>
           <div className="card">
