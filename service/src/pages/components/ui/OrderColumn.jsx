@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { axiosPatch } from '../../../../shared/helpers/api';
+// import { axiosPatch } from '../../../../shared/helpers/api';
+import Axios from 'axios';
 import OrderItemCard from './OrderItemCard';
-import socket from '../../../../shared/helpers/socket';
+// import socket from '../../../shared/helpers/socket';
 
 function OrderColumn({ sessionID, orderData }) {
   async function confirmOrder() {
-    await axiosPatch(`/api/orders/confirm/${orderData.orderNo}`);
-    socket.confirmOrder(sessionID);
+    await Axios.patch(`/api/orders/confirm/${orderData.orderNo}`)
+    .then(res => {
+      console.log(res);
+      // socket.confirmOrder(sessionID);
+    })
+    .catch(err => console.log(err));
   }
 
   const orderItems = orderData.items.map((itemData) => <OrderItemCard itemData={itemData} />);
