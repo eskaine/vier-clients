@@ -364,7 +364,22 @@ h5 {
 
   .cart-quantity-price-div {
     @include flex-sb-c;
-    width: 25%;
+    width: 20%;
+
+    .cart-quantity {
+      @include flex-c-c;
+      background-color: yellow;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+
+      p {
+        @include margin-padding-0;
+        color: $title-color-dark;
+        font-weight: 800;
+        font-size: 10px;
+      }
+    }
 
     p {
       font-size: 15px;
