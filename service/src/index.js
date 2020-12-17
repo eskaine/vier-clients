@@ -5,7 +5,7 @@ import App from './App';
 import './styles/service.scss';
 
 ReactDOM.render(
-  <BrowserRouter basename="/service">
+  <BrowserRouter basename="/">
     <App />
   </BrowserRouter>,
   document.getElementById('root')

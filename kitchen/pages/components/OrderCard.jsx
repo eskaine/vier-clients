@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { axiosPatch } from '../../../shared/helpers/api';
+// import { axiosPatch } from '../../../shared/helpers/api';
+import Axios from 'axios';
 
 function OrderCard({ item, orderId, getAllOrders }) {
   const [status, setStatus] = useState({ button: '', class: '' });
 
   async function updateProgress() {
-    await axiosPatch(`/api/orders/items/${orderId}`, {
+    await Axios.patch(`/api/orders/items/${orderId}`, {
       itemId: item._id,
-    });
-    getAllOrders();
+    })
+    .then(res => {
+      console.log(res)
+      getAllOrders();
+    })
+    .catch(err => console.log(err));
   }
 
   function setProgress() {
