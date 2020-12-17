@@ -8,7 +8,7 @@ function CartItemCard({ cartItem }) {
         <h6>{cartItem.dish.name}</h6>
       </div>
       <div className="cart-quantity-price-div">
-        <div className="cart-quantity">x{cartItem.quantity}</div>
+        <div className="cart-quantity"><p>x{cartItem.quantity}</p></div>
         <p>${cartItem.dish.price * cartItem.quantity}</p>
       </div>
     </div>
