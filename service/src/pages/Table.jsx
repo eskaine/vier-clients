@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OrderColumn from './components/ui/OrderColumn';
 
-function Table({tableData, getRestaurantData}) {
+function Table({tableData, getRestaurantData, setExpandedTable}) {
   const {session} = tableData.session;
 
   const ordersRender = tableData.session.orders.map((orderData) => (
@@ -12,7 +12,10 @@ function Table({tableData, getRestaurantData}) {
   return (
     <div className="container">
       <div className="table-page">
-        <h3>Table {tableData.tableNo}</h3>
+        <div className="row">
+          <h3>Table {tableData.tableNo}</h3>
+          <button onClick={() => setExpandedTable("")}>X</button>
+        </div>
         <div className="orders-container">{ordersRender}</div>
       </div>
     </div>
@@ -21,7 +24,7 @@ function Table({tableData, getRestaurantData}) {
 }
 
 Table.propTypes = {
-  tableData: PropTypes.object,
+  tableData: PropTypes.object
 };
 
 export default Table;

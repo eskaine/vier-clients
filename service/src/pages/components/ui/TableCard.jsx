@@ -34,15 +34,15 @@ function TableCard({ tableData, getRestaurantData, setExpandedTable }) {
 
   function calcOrders(data, displayType) {
     if (displayType === 'completed') {
-      return data.session.orders.filter((order) => order.completed === true).length;
+      return data.session.orders.filter((order) => order.status === 'Completed').length;
     }
     if (displayType === 'in-progress') {
       return data.session.orders.filter(
-        (order) => order.completed === false && order.items[0].progress === 'Confirmed'
+        (order) => order.status === 'Confirmed' || order.status === 'Preparing'
       ).length;
     }
     if (displayType === 'requests') {
-      return data.session.orders.filter((order) => order.completed === false).length;
+      return data.session.orders.filter((order) => order.status === 'Requested').length;
     }
   }
 

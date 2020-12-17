@@ -43,7 +43,7 @@ function Dashboard() {
   }, []);
 
   if (expandedTable && restaurantData) {
-    return <Table tableData={restaurantData[expandedTable - 1]} expandedTable={expandedTable} getRestaurantData={getRestaurantData()} />;
+    return <Table tableData={restaurantData[expandedTable - 1]} setExpandedTable={setExpandedTable} expandedTable={expandedTable} getRestaurantData={getRestaurantData()} />;
   }
   return <div className="container"><div className="tables-container">{tables}</div></div>;
 }
