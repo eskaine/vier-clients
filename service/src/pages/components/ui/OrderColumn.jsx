@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 // import { axiosPatch } from '../../../../shared/helpers/api';
 import Axios from 'axios';
 import OrderItemCard from './OrderItemCard';
-
 // import socket from '../../../shared/helpers/socket';
 
 function OrderColumn({sessionID, orderData, getRestaurantData}) {

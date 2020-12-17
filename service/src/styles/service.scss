@@ -53,7 +53,7 @@ button {
     color: $sv-header;
 
     &.inactive {
-      color: rgba($sv-header, .3);
+      color: rgba($sv-header, 0.3);
     }
   }
 
@@ -114,7 +114,6 @@ h4 {
   }
 
   p {
-
     font-size: 13px;
     color: rgba($sv-header, 0.5);
   }
@@ -131,7 +130,6 @@ h4 {
     }
 
     p {
-
     }
   }
 
@@ -139,7 +137,6 @@ h4 {
     h4 {
       color: $sv-purple;
     }
-
   }
 
   &.requests {
@@ -148,7 +145,6 @@ h4 {
     }
   }
 }
-
 
 .plus-button-wrapper {
   @include flex-c-c;
