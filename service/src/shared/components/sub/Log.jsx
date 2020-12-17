@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { axiosPost } from '../../helpers/api';
+import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
 
 function Log({ setIsAuth, url }) {
@@ -15,11 +15,10 @@ function Log({ setIsAuth, url }) {
 
   async function submitHandler(e) {
     e.preventDefault();
-    await Axios.post(`/api/auth/login`, form)
-    .then(res => {
+    let res = await Axios.post(url, form);
+    if (res.status === 200) {
       setIsAuth(true);
-    })
-    .catch(err => console.log(err))
+    }
   }
 
   return (

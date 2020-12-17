@@ -19,7 +19,7 @@ function Home({ setIsAuth }) {
           <div className="login-container">
             <div className="container">
               <h1>Register</h1>
-              <Log id="Register" setIsAuth={setIsAuth} url="register" />
+              <Log id="Register" setIsAuth={setIsAuth} url="/api/auth/register" />
             </div>
           </div>
           <div className="sm-container">
@@ -35,7 +35,7 @@ function Home({ setIsAuth }) {
           <div className="login-container">
             <div className="container">
               <h1>Login</h1>
-              <Log id="Login" setIsAuth={setIsAuth} url="/login" />
+              <Log id="Login" setIsAuth={setIsAuth} url="/api/auth/login" />
             </div>
           </div>
           <div className="sm-container">
