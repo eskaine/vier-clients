@@ -10,6 +10,10 @@ body {
   background-color: $sv-bg;
 }
 
+.container {
+  @include flex-c-c;
+}
+
 .tables-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -164,7 +168,7 @@ h4 {
 .orders-container {
   display: flex;
   width: 80vw;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .order-column {
