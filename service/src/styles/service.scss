@@ -171,6 +171,11 @@ h4 {
   overflow: scroll;
 }
 
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 .order-column {
   @include sv-card-border;
   min-width: 300px;
@@ -209,6 +214,13 @@ h4 {
 .order-item-card {
   @include flex-sb-c;
   height: 30px;
+
+  .dish-name-wrapper {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .quantity-progress {
     @include flex-sb-c;
