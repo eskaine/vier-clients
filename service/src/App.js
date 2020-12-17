@@ -34,7 +34,7 @@ function App() {
         </Route>
         <Route exact path="/kitchen">
           <Kitchen />
-          {isAuth ? <Kitchen /> : <Redirect to="/login" />}
+          {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
         </Route>
         <Route path="/login">
           {isAuth ? <Redirect to="/service" /> : <Login setIsAuth={setAuth} />}

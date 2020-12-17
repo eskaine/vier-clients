@@ -44,6 +44,7 @@ function Dashboard() {
   if (expandedTable && restaurantData) {
     return (
       <Table
+        setExpandedTable={setExpandedTable}
         tableData={restaurantData[expandedTable - 1]}
         expandedTable={expandedTable}
         getRestaurantData={getRestaurantData()}

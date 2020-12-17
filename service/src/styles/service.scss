@@ -168,7 +168,7 @@ h4 {
 .orders-container {
   display: flex;
   width: 80vw;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .order-column {
@@ -251,4 +251,14 @@ ul {
 a {
   text-decoration: none;
   color: $sv-purple;
+}
+
+.row {
+  @include flex-sb-c;
+}
+
+.btn-sm {
+  padding: 6px;
+  background-color: $sv-purple !important;
+  font-size: smaller;
 }
