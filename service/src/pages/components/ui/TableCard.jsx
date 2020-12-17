@@ -6,20 +6,30 @@ import {
   faExclamationCircle,
   faExpand,
 } from '@fortawesome/free-solid-svg-icons';
-import { axiosPatch, axiosPost } from '../../../../shared/helpers/api';
-import FAIcon from '../../../../shared/components/FAIcon';
+// import { axiosPatch, axiosPost } from '../../../../shared/helpers/api';
+import Axios from 'axios';
+import FAIcon from '../../../shared/components/FAIcon';
 
 function TableCard({ tableData, getRestaurantData, setExpandedTable }) {
   async function createSession() {
-    await axiosPost('/api/session/new', {
+    await Axios.post('/api/session/new', {
       tableNo: tableData.tableNo,
-    });
-    getRestaurantData();
+    })
+    .then(res => {
+      console.log(res)
+      getRestaurantData()
+    })
+    .catch(err => console.log(err));
+    // getRestaurantData();
   }
 
   async function endSession() {
-    await axiosPatch(`/api/session/${tableData.tableNo}`);
-    getRestaurantData();
+    await Axios.patch(`/api/session/${tableData.tableNo}`)
+    .then(res =>{
+      console.log(res)
+      getRestaurantData();
+    })
+    .catch(err => console.log(err));
   }
 
   function calcOrders(data, displayType) {

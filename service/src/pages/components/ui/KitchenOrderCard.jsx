@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { axiosPatch } from '../../../shared/helpers/api';
 import Axios from 'axios';
 
-function OrderCard({ item, orderId, getAllOrders }) {
+function KitchenOrderCard({ item, orderId, getAllOrders }) {
   const [status, setStatus] = useState({ button: '', class: '' });
 
   async function updateProgress() {
@@ -53,10 +53,10 @@ function OrderCard({ item, orderId, getAllOrders }) {
   );
 }
 
-OrderCard.propTypes = {
+KitchenOrderCard.propTypes = {
   item: PropTypes.object,
   orderId: PropTypes.string,
   getAllOrders: PropTypes.func,
 };
 
-export default OrderCard;
+export default KitchenOrderCard;

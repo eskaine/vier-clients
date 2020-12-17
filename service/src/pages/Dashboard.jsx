@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { axiosGet } from '../../shared/helpers/api';
-import socket from '../../shared/helpers/socket';
+// import { axiosGet } from '../../shared/helpers/api';
+import Axios from 'axios';
+import socket from '../shared/helpers/socket';
 import TableCard from './components/ui/TableCard';
 import TableModal from './components/TableModal';
 import Table from './Table';
@@ -10,15 +11,19 @@ function Dashboard() {
   const [expandedTable, setExpandedTable] = useState('');
   let tables = '';
   async function getRestaurantData() {
-    const res = await axiosGet('/api/tables');
-    setRestaurantData(res.tables);
+    // const res = await axios.get('/api/tables')
+    await Axios.get('/api/tables')
+    .then(res => {
+      setRestaurantData(res.data.tables);
+    })
+    .catch(err => console.log(err));
   }
 
-  function receiveOrder() {
-    return socket.receive('order', () => {
-      getRestaurantData();
-    });
-  }
+  // function receiveOrder() {
+  //   return socket.receive('order', () => {
+  //     getRestaurantData();
+  //   });
+  // }
 
   if (restaurantData) {
     tables = restaurantData.map((tableData) => (
@@ -30,10 +35,11 @@ function Dashboard() {
       />
     ));
   }
+  console.log(restaurantData);
 
   useEffect(() => {
     getRestaurantData();
-    receiveOrder();
+    // receiveOrder();
   }, []);
 
   if (expandedTable && restaurantData) {
