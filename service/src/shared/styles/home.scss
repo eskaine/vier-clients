@@ -76,11 +76,13 @@ span {
 .pink {
   @include sv-pink-btn;
   font-size: 16px;
+  color: #06070a;
 }
 
 .green {
   @include sv-green-btn;
   font-size: 16px;
+  color: #06070a;
 }
 
 .pill {
