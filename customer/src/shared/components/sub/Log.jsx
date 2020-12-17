@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { axiosPost } from '../../helpers/api';
+// import { axiosPost } from '../../helpers/api';
+import Axios from 'axios';
 
 function Log({ setIsAuth, url }) {
   const [form, setForm] = useState({
@@ -14,10 +15,12 @@ function Log({ setIsAuth, url }) {
 
   async function submitHandler(e) {
     e.preventDefault();
-    const res = await axiosPost(url, form);
-    if (res) {
+    await Axios.post(url, form)
+    .then(res => {
+      console.log(res);
       setIsAuth(true);
-    }
+    })
+    .catch(err => console.log(err));
   }
 
   return (

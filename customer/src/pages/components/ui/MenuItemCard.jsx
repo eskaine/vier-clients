@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { axiosPost } from '../../../shared/helpers/api';
+// import { axiosPost } from '../../../shared/helpers/api';
+import Axios from 'axios';
 import socket from '../../../shared/helpers/socket';
 import FAIcon from "../../../shared/components/FAIcon";
 
@@ -25,9 +26,11 @@ function MenuItemCard({
   }
 
   async function modifyItem(modType) {
-    await axiosPost(`http://localhost:8080/api/cart/${modType}/${sessionId}`, {
+    await Axios.patch(`/api/cart/${modType}/${sessionId}`, {
       dishId: menuItem._id,
-    });
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
     getSessionData(tableno);
     socket.transmit('cart');
   }

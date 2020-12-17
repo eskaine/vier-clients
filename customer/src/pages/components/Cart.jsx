@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import socket from '../../shared/helpers/socket';
-import { axiosPatch } from '../../shared/helpers/api';
+// import { axiosPatch } from '../../shared/helpers/api';
+import Axios from 'axios';
 import { calculateTotal } from '../../shared/helpers/func';
 import CartItemCard from './ui/CartItemCard';
 
@@ -36,7 +37,13 @@ function Cart({ cartData, sessionId, getSessionData, pageMode }) {
   }
 
   async function placeOrder() {
-    await axiosPatch(`/api/orders/new/${sessionId}`, {}, () => setExpandCart(false));
+    // await axiosPatch(`/api/orders/new/${sessionId}`, {}, () => setExpandCart(false));
+    await Axios.patch(`/api/orders/new/${sessionId}`)
+    .then(res => {
+      console.log(res);
+      setExpandCart(false);
+    })
+    .catch(err => console.log(err));
     getSessionData(tableno);
     socket.transmit('cart');
     socket.transmit('order');
