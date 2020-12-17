@@ -374,26 +374,29 @@ h5 {
     @include flex-sb-c;
     width: 20%;
 
-    .cart-quantity {
-      @include flex-c-c;
-      background-color: yellow;
-      width: 20px;
-      height: 20px;
-      border-radius: 5px;
-
-      p {
-        @include margin-padding-0;
-        color: $title-color-dark;
-        font-weight: 800;
-        font-size: 10px;
-      }
-    }
 
     p {
       font-size: 15px;
       font-weight: 200;
     }
   }
+
+  .cart-quantity {
+    @include flex-c-c;
+    background-color: yellow;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+
+    p {
+      @include margin-padding-0;
+      color: $title-color-dark;
+      font-weight: 800;
+      font-size: 10px;
+    }
+  }
+
+
 }
 
 .cart-footer {
