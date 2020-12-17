@@ -43,28 +43,6 @@ function App() {
         </Route>
       </Switch>
     </div>
-    // <div>
-    //   <Nav />
-    //   <Switch>
-        // <Route path="/" >
-        //   {isAuth ? <Dashboard /> : <Redirect to="/login" />}
-        // </Route>
-        // <Route exact path="/kitchen">
-        //   <Kitchen />
-          // {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
-        // </Route>
-        // <Route path="/login">
-        //   <Log setIsAuth={setIsAuth} url="login" page="register" />
-        // </Route>
-        // <Route path="/register">
-        //   <Log setIsAuth={setIsAuth} url="register" page="login" />
-        // </Route>
-        // <Route exact path="/service" >
-        //   <Dashboard />
-        //   {/* {isAuth ? <Dashboard /> : <Redirect to="/login" />} */}
-        // </Route>
-    //   </Switch>
-    // </div>
   );
 }
 
