@@ -362,6 +362,15 @@ h5 {
     }
   }
 
+  .cart-item-progress {
+    background-color: rgba(#43455a, 0.9);
+    border-radius: 20px;
+    padding: 6px;
+    color: #edeffa;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+  }
+
   .cart-quantity-price-div {
     @include flex-sb-c;
     width: 20%;

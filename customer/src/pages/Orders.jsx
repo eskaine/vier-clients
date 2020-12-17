@@ -21,10 +21,10 @@ function Orders({ sessionData }) {
     <div className="home-page-div">
       <div className="category-header-div">
         <h3>Orders</h3>
-        <h4 className="total">Total: ${total}</h4>
       </div>
       <div className="order-item-container">
         {orders}
+        <h4 className="total">Total: ${total}</h4>
         <Link className="route-link" to={{ pathname: '/checkout', state: { total } }}>
           <div className="card">
             <h3>Checkout</h3>
