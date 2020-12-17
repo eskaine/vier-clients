@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { axiosPatch } from '../../../../shared/helpers/api';
-import FAIcon from '../../../../shared/components/FAIcon';
-import socket from '../../../../shared/helpers/socket';
+import { axiosPost } from '../../../shared/helpers/api';
+import socket from '../../../shared/helpers/socket';
+import FAIcon from "../../../shared/components/FAIcon";
 
 function MenuItemCard({
   menuItem,
@@ -25,7 +25,7 @@ function MenuItemCard({
   }
 
   async function modifyItem(modType) {
-    await axiosPatch(`/api/cart/${modType}/${sessionId}`, {
+    await axiosPost(`http://localhost:8080/api/cart/${modType}/${sessionId}`, {
       dishId: menuItem._id,
     });
     getSessionData(tableno);

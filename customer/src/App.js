@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import { axiosGet } from '../shared/helpers/api';
-import socket from '../shared/helpers/socket';
+import { axiosGet } from './shared/helpers/api';
+import socket from './shared/helpers/socket';
 import Home from './pages/Home';
 import Cart from './pages/components/Cart';
 import Topbar from './pages/components/ui/Topbar';
@@ -17,7 +17,7 @@ function App() {
 
   // FUNCTION CALL TO RE-RENDER
   async function getSessionData(tableno) {
-    const res = await axiosGet(`/api/tables/${tableno}`);
+    const res = await axiosGet(`http://localhost:8080/api/tables/${tableno}`);
     setSessionData(res.table.session);
     socket.session(res.table.session.session);
   }
