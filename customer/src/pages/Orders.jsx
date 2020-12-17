@@ -7,6 +7,8 @@ function Orders({ sessionData }) {
   const orders = sessionData.orders.map((el, i) => <OrderItemCard order={el} number={i} key={i} />);
   const [total, setTotal] = useState(0);
 
+  let render = "No order"
+
   function getTotalCost() {
     const reducer = (total, cur) => total + cur;
     const count = sessionData.orders.map((el) => el.totalCost).reduce(reducer);
@@ -23,7 +25,7 @@ function Orders({ sessionData }) {
         <h3>Orders</h3>
       </div>
       <div className="order-item-container">
-        {orders}
+        {render}
         <h4 className="total">Total: ${total}</h4>
         <Link className="route-link" to={{ pathname: '/checkout', state: { total } }}>
           <div className="card">

@@ -441,6 +441,7 @@ h5 {
 .order-item-container {
   margin: 80px 5px;
   padding-bottom: 20px;
+  min-height: 500px;
 
   .card {
     @include menu-card;
