@@ -18,6 +18,7 @@ function App() {
   // FUNCTION CALL TO RE-RENDER
   async function getSessionData(tableno) {
     const res = await axiosGet(`http://localhost:8080/api/tables/${tableno}`);
+    console.log(res);
     setSessionData(res.table.session);
     socket.session(res.table.session.session);
   }
@@ -42,7 +43,7 @@ function App() {
   useEffect(() => {
     socket.connect();
     return () => {
-      socket.disconnect();
+      socket.stop();
     };
   }, []);
 
@@ -52,16 +53,36 @@ function App() {
       {backdrop}
       <Switch>
         <Route path="/" exact>
-          <NavLink to="/table/1"><p>Table 1</p></NavLink>
-          <NavLink to="/table/2"><p>Table 2</p></NavLink>
-          <NavLink to="/table/3"><p>Table 3</p></NavLink>
-          <NavLink to="/table/4"><p>Table 4</p></NavLink>
-          <NavLink to="/table/5"><p>Table 5</p></NavLink>
-          <NavLink to="/table/6"><p>Table 6</p></NavLink>
-          <NavLink to="/table/7"><p>Table 7</p></NavLink>
-          <NavLink to="/table/8"><p>Table 8</p></NavLink>
-          <NavLink to="/table/9"><p>Table 9</p></NavLink>
-          <NavLink to="/table/10"><p>Table 10</p></NavLink>
+          <NavLink to="/table/1">
+            <p>Table 1</p>
+          </NavLink>
+          <NavLink to="/table/2">
+            <p>Table 2</p>
+          </NavLink>
+          <NavLink to="/table/3">
+            <p>Table 3</p>
+          </NavLink>
+          <NavLink to="/table/4">
+            <p>Table 4</p>
+          </NavLink>
+          <NavLink to="/table/5">
+            <p>Table 5</p>
+          </NavLink>
+          <NavLink to="/table/6">
+            <p>Table 6</p>
+          </NavLink>
+          <NavLink to="/table/7">
+            <p>Table 7</p>
+          </NavLink>
+          <NavLink to="/table/8">
+            <p>Table 8</p>
+          </NavLink>
+          <NavLink to="/table/9">
+            <p>Table 9</p>
+          </NavLink>
+          <NavLink to="/table/10">
+            <p>Table 10</p>
+          </NavLink>
         </Route>
         <Route path="/table/:tableno">
           <Home

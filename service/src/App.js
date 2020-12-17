@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     socket.connect('service');
     return () => {
-      socket.disconnect();
+      socket.stop();
     };
   }, []);
 

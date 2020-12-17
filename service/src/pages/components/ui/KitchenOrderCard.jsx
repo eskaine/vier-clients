@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import { axiosPatch } from '../../../shared/helpers/api';
 import Axios from 'axios';
+import socket from '../../../shared/helpers/socket';
 
 function KitchenOrderCard({ item, orderId, getAllOrders }) {
   const [status, setStatus] = useState({ button: '', class: '' });
@@ -10,11 +11,12 @@ function KitchenOrderCard({ item, orderId, getAllOrders }) {
     await Axios.patch(`/api/orders/items/${orderId}`, {
       itemId: item._id,
     })
-    .then(res => {
-      console.log(res)
-      getAllOrders();
-    })
-    .catch(err => console.log(err));
+      .then((res) => {
+        console.log(res);
+        getAllOrders();
+        socket.transmit('order');
+      })
+      .catch((err) => console.log(err));
   }
 
   function setProgress() {
