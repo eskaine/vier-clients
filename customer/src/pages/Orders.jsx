@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import OrderItemCard from './components/ui/OrderItemCard';
 
-function Orders({ sessionData }) {
-  const orders = sessionData.orders.map((el, i) => <OrderItemCard order={el} number={i} key={i} />);
+function Orders({sessionData}) {
+  let render = (<div>No orders yet!</div>)
+  if (sessionData.orders) {
+    render = sessionData.orders.map((el, i) => <OrderItemCard order={el} number={i} key={i}/>);
+  }
   const [total, setTotal] = useState(0);
 
-  let render = "No order"
 
   function getTotalCost() {
-    const reducer = (total, cur) => total + cur;
-    const count = sessionData.orders.map((el) => el.totalCost).reduce(reducer);
-    setTotal(count.toFixed(2));
+    if (sessionData.orders) {
+      let count = 0
+      sessionData.orders.forEach((item) => count += item.totalCost)
+      setTotal(count.toFixed(2));
+    }
   }
 
   useEffect(() => {
@@ -27,7 +31,7 @@ function Orders({ sessionData }) {
       <div className="order-item-container">
         {render}
         <h4 className="total">Total: ${total}</h4>
-        <Link className="route-link" to={{ pathname: '/checkout', state: { total } }}>
+        <Link className="route-link" to={{pathname: '/checkout', state: {total}}}>
           <div className="card">
             <h3>Checkout</h3>
           </div>
