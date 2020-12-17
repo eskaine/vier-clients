@@ -54,7 +54,7 @@ function Kitchen() {
         <FAIcon icon={faTasks} divClass="icon" />
         <h1>Orders</h1>
       </div>
-      <div className="flexbox">{orderCards}</div>
+      <div className="flexbox ordercards">{orderCards}</div>
     </div>
   );
 }
