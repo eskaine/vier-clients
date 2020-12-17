@@ -18,6 +18,7 @@ function AuthForm({ setIsAuth, url, page }) {
       await Axios.post(`/api/auth/${url}`, form)
       .then(res => {
         setIsAuth(true);
+        <Redirect to="/service" />
       })
       .catch(err => console.log(err))
     }

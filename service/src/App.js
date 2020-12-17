@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import PrivateRoute from './shared/components/PrivateRoute';
 import socket from './shared/helpers/socket';
-import Home from './shared/components/Home';
 import Dashboard from './pages/Dashboard';
 import Kitchen from './pages/Kitchen';
 import Nav from './shared/components/Nav';
@@ -24,18 +23,20 @@ function App() {
       {/* {isAuth ? <Nav /> : ''} */}
       <Nav />
       <Switch>
-        {/* <Route path="/" >
-          {isAuth ? <Dashboard /> : <Redirect to="/login" />}
-        </Route> */}
+        <Route exact path="/" >
+          {isAuth ? <Redirect to='/service' /> : <Login setIsAuth={setIsAuth} />}
+        </Route>
         <Route exact path="/kitchen">
           <Kitchen />
-          {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
+          {isAuth ? <Kitchen /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
-          <Login setIsAuth={setIsAuth} url="login" />
+          {isAuth ? <Redirect to="/service" /> : <Login setIsAuth={setIsAuth} />}
+          {/* <Login setIsAuth={setIsAuth} url="login" /> */}
         </Route>
         <Route path="/register">
-          <Register setIsAuth={setIsAuth} url="login" />
+          {isAuth ? <Redirect to="/service" /> : <Register setIsAuth={setIsAuth} />}
+          {/* <Register setIsAuth={setIsAuth} url="login" /> */}
         </Route>
         <Route exact path="/service" >
           <Dashboard />

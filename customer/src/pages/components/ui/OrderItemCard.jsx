@@ -6,13 +6,13 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 function OrderItemCard({ order, number }) {
   const [open, setOpen] = useState(false);
   const [progressBar, setProgressBar] = useState(<div className="progress-bar2" />);
-  console.log("order", order)
 
   const orderDetails = order.items.map((el) => (
     <div className="cart-item-card" key={el._id}>
       <div className="cart-item-name-div">
         <h6>{el.dish.name}</h6>
       </div>
+      <div className="cart-quantity"><p>x{el.quantity}</p></div>
       <div className="cart-item-progress">{el.progress}</div>
     </div>
   ));

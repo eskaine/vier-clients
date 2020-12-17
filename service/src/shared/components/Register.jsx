@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthForm from './sub/AuthForm';
 
-function Register({ setIsAuth, page }) {
+function Register({ setIsAuth }) {
     return (
         <div className="login-page">
             <div className="login-container">
