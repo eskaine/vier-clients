@@ -5,8 +5,12 @@ function Nav() {
     return (
         <div>
             <ul>
-                <NavLink to="/service">Service</NavLink>
-                <NavLink to="/kitchen">Kitchen</NavLink>
+                <li className="navlink">
+                    <NavLink to="/service">Service</NavLink>
+                </li>
+                <li className="navlink">
+                    <NavLink to="/kitchen">Kitchen</NavLink>
+                </li>
             </ul>
         </div>
     )
