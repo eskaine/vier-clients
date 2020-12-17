@@ -47,7 +47,7 @@ span {
 }
 
 .login-page {
-  @include flex-c-c;
+  // @include flex-c-c;
   flex-direction: column;
   align-content: center;
   height: 100vh;
@@ -58,7 +58,7 @@ span {
   display: block;
   width: 380px;
   height: 350px;
-  padding: 12px;
+  padding: 20px !important;
 }
 
 .sm-container {

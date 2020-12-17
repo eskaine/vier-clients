@@ -27,14 +27,14 @@ function App() {
   return (
     <div>
       {/* {isAuth ? <Nav /> : ''} */}
-      <Nav />
+      <Nav setIsAuth={setIsAuth} />
       <Switch>
         <Route exact path="/">
           {isAuth ? <Redirect to="/service" /> : <Login setIsAuth={setAuth} />}
         </Route>
         <Route exact path="/kitchen">
-          <Kitchen />
-          {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
+          {/* <Kitchen /> */}
+          {isAuth ? <Kitchen /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
           {isAuth ? <Redirect to="/service" /> : <Login setIsAuth={setAuth} />}
@@ -45,8 +45,8 @@ function App() {
           {/* <Register setIsAuth={setIsAuth} url="login" /> */}
         </Route>
         <Route exact path="/service">
-          <Dashboard />
-          {/* {isAuth ? <Dashboard /> : <Redirect to="/login" />} */}
+          {/* <Dashboard /> */}
+          {isAuth ? <Dashboard /> : <Redirect to="/login" />}
         </Route>
       </Switch>
     </div>

@@ -41,6 +41,13 @@ function Kitchen() {
     <KitchenOrderCard item={el.item} key={i} orderId={el.orderId} getAllOrders={getAllOrders} />
   ));
 
+  if (orders.length === 0) {
+    return (
+      <div className="container">
+        <h1>No new orders!</h1>
+      </div>
+    )
+  }
   return (
     <div className="kitchen-container">
       <div className="crew-title">
