@@ -6,6 +6,8 @@ import Home from './shared/components/Home';
 import Dashboard from './pages/Dashboard';
 import Kitchen from './pages/Kitchen';
 import Nav from './shared/components/Nav';
+import Register from './shared/components/Register';
+import Login from './shared/components/Login';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -19,27 +21,50 @@ function App() {
 
   return (
     <div>
+      {/* {isAuth ? <Nav /> : ''} */}
       <Nav />
-      {/* <Dashboard /> */}
-      <NavLink to="/tester">Tester</NavLink>
       <Switch>
-        <Route exact path="/service" >
-          <Dashboard />
-        </Route>
+        {/* <Route path="/" >
+          {isAuth ? <Dashboard /> : <Redirect to="/login" />}
+        </Route> */}
         <Route exact path="/kitchen">
           <Kitchen />
+          {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
         </Route>
-        {/* <Route exact path="/"> */}
-          {/* <Dashboard /> */}
-          {/* {isAuth ? <Redirect to="/dashboard" /> : <Home setIsAuth={setIsAuth} />} */}
-        {/* </Route> */}
-        {/* <PrivateRoute exact path="/dashboard" component={Dashboard} isAuth={isAuth} /> */}
-        {/* <Dashboard /> */}
-        {/* <Route path="/tester" exact> */}
-        {/*  <Dashboard /> */}
-        {/* </Route> */}
+        <Route path="/login">
+          <Login setIsAuth={setIsAuth} url="login" />
+        </Route>
+        <Route path="/register">
+          <Register setIsAuth={setIsAuth} url="login" />
+        </Route>
+        <Route exact path="/service" >
+          <Dashboard />
+          {/* {isAuth ? <Dashboard /> : <Redirect to="/login" />} */}
+        </Route>
       </Switch>
     </div>
+    // <div>
+    //   <Nav />
+    //   <Switch>
+        // <Route path="/" >
+        //   {isAuth ? <Dashboard /> : <Redirect to="/login" />}
+        // </Route>
+        // <Route exact path="/kitchen">
+        //   <Kitchen />
+          // {/* {isAuth ? <Kitchen /> : <Redirect to="/login" />} */}
+        // </Route>
+        // <Route path="/login">
+        //   <Log setIsAuth={setIsAuth} url="login" page="register" />
+        // </Route>
+        // <Route path="/register">
+        //   <Log setIsAuth={setIsAuth} url="register" page="login" />
+        // </Route>
+        // <Route exact path="/service" >
+        //   <Dashboard />
+        //   {/* {isAuth ? <Dashboard /> : <Redirect to="/login" />} */}
+        // </Route>
+    //   </Switch>
+    // </div>
   );
 }
 

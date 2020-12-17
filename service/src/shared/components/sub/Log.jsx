@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { axiosPost } from '../../helpers/api';
 import Axios from 'axios';
 
-function Log({ setIsAuth, url }) {
+function AuthForm({ setIsAuth, url, page }) {
   const [form, setForm] = useState({
     username: '',
     password: '',
@@ -15,7 +15,7 @@ function Log({ setIsAuth, url }) {
 
   async function submitHandler(e) {
     e.preventDefault();
-    await Axios.post(`/api/auth/login`, form)
+    await Axios.post(`/api/auth/${url}`, form)
     .then(res => {
       setIsAuth(true);
     })
@@ -35,9 +35,9 @@ function Log({ setIsAuth, url }) {
   );
 }
 
-Log.propTypes = {
+AuthForm.propTypes = {
   setIsAuth: PropTypes.func,
   url: PropTypes.string,
 };
 
-export default Log;
+export default AuthForm;

@@ -175,3 +175,26 @@ h4 {
 //  @include flex-sb-c;
 //
 //}
+
+ul {
+  list-style-type: none;
+  @include margin-padding-0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: $sv-purple;
+}
+
+.navlink {
+  text-decoration: none;
+  display: inline;
+  width: 50%;
+  padding: 12px;
+  border: 1px solid $sv-border;
+  text-align: center;
+}
