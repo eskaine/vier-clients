@@ -45,7 +45,7 @@ function Dashboard() {
   if (expandedTable && restaurantData) {
     return <Table tableData={restaurantData[expandedTable - 1]} expandedTable={expandedTable} getRestaurantData={getRestaurantData()} />;
   }
-  return <div className="tables-container">{tables}</div>;
+  return <div className="container"><div className="tables-container">{tables}</div></div>;
 }
 
 export default Dashboard;
