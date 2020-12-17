@@ -6,4 +6,13 @@ function calculateTotal(cart) {
   return total;
 }
 
-export { calculateTotal }
+function getLocalAuth() {
+  let isAuth = localStorage.getItem('isAuth');
+  return isAuth ? isAuth : false;
+}
+
+function setLocalAuth(isAuth) {
+  localStorage.setItem('isAuth', isAuth);
+}
+
+export { calculateTotal, getLocalAuth, setLocalAuth };

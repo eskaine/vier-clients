@@ -10,7 +10,6 @@ function Orders({sessionData}) {
   }
   const [total, setTotal] = useState(0);
 
-
   function getTotalCost() {
     if (sessionData.orders) {
       let count = 0
@@ -29,7 +28,7 @@ function Orders({sessionData}) {
         <h3>Orders</h3>
       </div>
       <div className="order-item-container">
-        {render}
+        {orders}
         <h4 className="total">Total: ${total}</h4>
         <Link className="route-link" to={{pathname: '/checkout', state: {total}}}>
           <div className="card">
