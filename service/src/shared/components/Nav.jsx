@@ -1,7 +1,11 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
-function Nav() {
+function Nav({setIsAuth}) {
+    function logout(){
+        // console.log('logout')
+        setIsAuth(false);
+    }
     return (
         <div>
             <ul>
@@ -11,6 +15,7 @@ function Nav() {
                 <li className="navlink">
                     <NavLink to="/kitchen">Kitchen</NavLink>
                 </li>
+                <li className="navlink" style={{width: '50px'}} onClick={() => {logout()}}>Logout</li>
             </ul>
         </div>
     )

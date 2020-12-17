@@ -249,6 +249,10 @@ a {
   padding: 12px;
   border: 1px solid $sv-border;
   text-align: center;
+  color: $sv-purple;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 ul {

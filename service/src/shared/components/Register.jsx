@@ -6,10 +6,8 @@ function Register({ setIsAuth }) {
     return (
         <div className="login-page">
             <div className="login-container">
-                <div className="container">
                 <h1>Register</h1>
                 <AuthForm setIsAuth={setIsAuth} url="register" page="login" />
-                </div>
             </div>
             <div className="sm-container">
                 <p>
