@@ -16,7 +16,7 @@ function OrderItemCard({itemData, orderId}) {
     return (
         <s>
       <div className="order-item-card">
-        <p>{itemData.dish.name}</p>
+        <div className="dish-name-wrapper"><p>{itemData.dish.name}</p></div>
         <div className="quantity-progress">
           <p>x{itemData.quantity}</p>
           <p>{itemData.progress}</p>
@@ -31,7 +31,7 @@ function OrderItemCard({itemData, orderId}) {
   } else {
     return (
       <div className="order-item-card">
-        <p>{itemData.dish.name}</p>
+        <div className="dish-name-wrapper"><p>{itemData.dish.name}</p></div>
         <div className="quantity-progress">
           <p>x{itemData.quantity}</p>
           <p>{itemData.progress}</p>
