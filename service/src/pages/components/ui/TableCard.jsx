@@ -38,7 +38,7 @@ function TableCard({ tableData, getRestaurantData, setExpandedTable }) {
     }
     if (displayType === 'in-progress') {
       return data.session.orders.filter(
-        (order) => order.completed === false && order.items[0].progress === 2
+        (order) => order.completed === false && order.items[0].progress === 'Confirmed'
       ).length;
     }
     if (displayType === 'requests') {
