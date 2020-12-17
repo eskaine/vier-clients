@@ -13,17 +13,17 @@ function Dashboard() {
   async function getRestaurantData() {
     // const res = await axios.get('/api/tables')
     await Axios.get('/api/tables')
-    .then(res => {
-      setRestaurantData(res.data.tables);
-    })
-    .catch(err => console.log(err));
+      .then((res) => {
+        setRestaurantData(res.data.tables);
+      })
+      .catch((err) => console.log(err));
   }
 
-  // function receiveOrder() {
-  //   return socket.receive('order', () => {
-  //     getRestaurantData();
-  //   });
-  // }
+  function receiveOrder() {
+    return socket.receive('order', () => {
+      getRestaurantData();
+    });
+  }
 
   if (restaurantData) {
     tables = restaurantData.map((tableData) => (
@@ -35,17 +35,26 @@ function Dashboard() {
       />
     ));
   }
-  // console.log(restaurantData);
 
   useEffect(() => {
     getRestaurantData();
-    // receiveOrder();
+    receiveOrder();
   }, []);
 
   if (expandedTable && restaurantData) {
-    return <Table tableData={restaurantData[expandedTable - 1]} expandedTable={expandedTable} getRestaurantData={getRestaurantData()} />;
+    return (
+      <Table
+        tableData={restaurantData[expandedTable - 1]}
+        expandedTable={expandedTable}
+        getRestaurantData={getRestaurantData()}
+      />
+    );
   }
-  return <div className="container"><div className="tables-container">{tables}</div></div>;
+  return (
+    <div className="container">
+      <div className="tables-container">{tables}</div>
+    </div>
+  );
 }
 
 export default Dashboard;

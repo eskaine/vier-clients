@@ -7,7 +7,7 @@ export default (() => {
     socket = io.connect(process.env.SERVER, { query: { clientType: type } });
   };
 
-  const disconnect = () => socket.emit('disconnect');
+  const stop = () => socket.emit('disconnect');
 
   const session = (sessionID) => socket.emit('session', { sessionID });
 
@@ -22,7 +22,7 @@ export default (() => {
 
   return {
     connect,
-    disconnect,
+    stop,
     transmit,
     receive,
     session,
